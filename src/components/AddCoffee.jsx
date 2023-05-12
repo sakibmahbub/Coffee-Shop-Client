@@ -25,7 +25,7 @@ const AddCoffee = () => {
 
     // Send data to the server
 
-    fetch("http://localhost:5000/coffee", {
+    fetch(`http://localhost:5000/coffee/${_id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -35,10 +35,10 @@ const AddCoffee = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.insertedId > 0) {
           Swal.fire({
             title: "Success!",
-            text: "User added successfully",
+            text: "Coffee added successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
